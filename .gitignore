@@ -5,7 +5,7 @@ temp/*
 dist/*
 build/*
 tags
-jpar.egg-info
+igenerate.egg-info
 
 # test-related
 .coverage

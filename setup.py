@@ -3,7 +3,7 @@ from setuptools import setup
 setup(name='igenerate',
       description='Easy generate apple watch and ios icons with one command.',
       long_description='Easy generate apple watch and ios icons with one command.',
-      version='1.0.0',
+      version='1.0.2',
       url='https://github.com/ferdielik/igenerate',
       author='Ferdi Elik',
       author_email='elikferdi@gmail.com',
@@ -14,5 +14,8 @@ setup(name='igenerate',
           'License :: OSI Approved :: Apache Software License',
           'Programming Language :: Python :: 3'
       ],
-      packages=['igenerate'],
-      )
+      scripts=['igenerate/igenerate'],
+      install_requires=[
+          'pillow'
+      ],
+      ),
