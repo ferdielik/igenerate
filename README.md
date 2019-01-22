@@ -1,4 +1,4 @@
-# Pretty Json Parser
+# Icon Generator (Ios App, Apple Watch)
 Easy generate apple watch and ios icons with one command.
 
 ## Install
