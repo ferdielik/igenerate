@@ -2,8 +2,8 @@ from setuptools import setup
 
 setup(name='igenerate',
       description='Easy generate apple watch and ios icons with one command.',
-      long_description='Easy generate apple watch and ios icons with one command.',
-      version='1.0.2',
+      long_description='Easy generate apple watch and ios icons with one command. Or you can generate custom sizes',
+      version='1.0.3',
       url='https://github.com/ferdielik/igenerate',
       author='Ferdi Elik',
       author_email='elikferdi@gmail.com',

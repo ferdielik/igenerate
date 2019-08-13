@@ -10,6 +10,7 @@ from PIL import Image
 class Formats(Enum):
     iwatch = [48, 55, 58, 80, 87, 88, 100, 172, 196, 216, 1024]
     ios = [40, 60, 58, 87, 80, 120, 180, 20, 29, 76, 152, 167, 1024]
+    custom = []
 
 
 def generate(file, size, out_path):
@@ -35,15 +36,28 @@ def valid(argv):
     return True
 
 
+def get_custom_sizes(argv):
+    return [int(i) for i in argv[2].split(",")]
+
+
+def parse_argvs(argv):
+    sizes = [int(i) for i in argv[2].split(",")] if len(argv) > 2 is not None else []
+    return argv[0], argv[1], sizes
+
+
 def main(argv):
     if not valid(argv):
         print("usage: igenerate [%s] [icon_path]" % '|'.join(Formats.__members__))
+        print("       igenerate custom [10, 50, 60]")
         exit(0)
 
-    type = argv[0]
-    file = argv[1]
+    type, file, custom_sizes = parse_argvs(argv)
+    is_custom_generation = type == Formats.custom.name
 
-    for size in Formats[type].value:
+    sizes = custom_sizes if is_custom_generation else Formats[type].value
+
+    print(sizes)
+    for size in sizes:
         generate(file, size, os.getcwd())
 
     print("all icons generated for %s" % type)
