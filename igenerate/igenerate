@@ -9,12 +9,13 @@ from PIL import Image
 
 class Formats(Enum):
     iwatch = [48, 55, 58, 80, 87, 88, 100, 172, 196, 216, 1024]
+    android = [36, 48, 72, 96, 144, 192]
     ios = [40, 60, 58, 87, 80, 120, 180, 20, 29, 76, 152, 167, 1024]
     custom = []
 
 
 def generate(file, size, out_path):
-    postfix = "-%d-%d.jpg" % (size, size)
+    postfix = "-%d-%d.png" % (size, size)
     img_size = size, size
     file_name = os.path.splitext(file)[0]
     outfile = "%s/%s%s" % (out_path, file_name, postfix)
@@ -22,7 +23,7 @@ def generate(file, size, out_path):
         print("generating '%s%s'" % (file_name, postfix))
         im = Image.open(file)
         im.thumbnail(img_size, Image.ANTIALIAS)
-        im.save(outfile, "JPEG")
+        im.save(outfile, "PNG")
     except IOError:
         print("cannot create %dx%d for '%s'" % (size, size, file))
 
